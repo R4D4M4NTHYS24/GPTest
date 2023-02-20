@@ -1,46 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { DataGrid, GridRenderCellParams } from "@mui/x-data-grid";
 import { People } from "@/data";
+import { Person } from "@/models";
+import { Checkbox } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite } from "@/redux/states/favorites";
+import { addPeople } from "@/redux/states";
+import store, { AppStore } from "@/redux/store";
+import { PeopleTable } from "./components";
 
 export interface HomeInterface {}
 
 const Home: React.FC<HomeInterface> = () => {
-  const pageSize = 5;
-  const colums = [
-    {
-      field: "name",
-      headerName: "Name",
-      flex: 1,
-      minWidth: 150,
-      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
-    },
-    {
-      field: "category",
-      headerName: "Categories",
-      flex: 1,
+  const dispatch = useDispatch();
 
-      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
-    },
-    {
-      field: "company",
-      headerName: "Company",
-      flex: 1,
-
-      renderCell: (params: GridRenderCellParams) => <>{params.value}</>,
-    },
-  ];
-  return (
-    <DataGrid
-      rows={People}
-      columns={colums}
-      disableColumnSelector
-      disableSelectionOnClick
-      autoHeight
-      pageSize={pageSize}
-      rowsPerPageOptions={[pageSize]}
-      getRowId={(row: any) => row.id}
-    />
-  );
+  useEffect(() => {
+    dispatch(addPeople(People));
+  }, []);
+  return <PeopleTable />;
 };
 
 export default Home;

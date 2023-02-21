@@ -1,4 +1,4 @@
-export enum LocarStorageTypes {
+export enum LocalStorageTypes {
   PEOPLE = "people",
   FAVORITES = "favorites",
 }

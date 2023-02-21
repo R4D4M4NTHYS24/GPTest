@@ -1,4 +1,4 @@
-import { LocarStorageTypes, Person } from "@/models";
+import { LocalStorageTypes, Person } from "@/models";
 import {
   getLocalStorage,
   setLocalStorage,
@@ -9,12 +9,12 @@ const initialState: Person[] = [];
 
 export const peopleSlice = createSlice({
   name: "people",
-  initialState: getLocalStorage(LocarStorageTypes.PEOPLE)
-    ? JSON.parse(getLocalStorage(LocarStorageTypes.PEOPLE) as string)
+  initialState: getLocalStorage(LocalStorageTypes.PEOPLE)
+    ? JSON.parse(getLocalStorage(LocalStorageTypes.PEOPLE) as string)
     : initialState,
   reducers: {
     addPeople: (state, action) => {
-      setLocalStorage(LocarStorageTypes.PEOPLE, state);
+      setLocalStorage(LocalStorageTypes.PEOPLE, state);
       return action.payload;
     },
   },

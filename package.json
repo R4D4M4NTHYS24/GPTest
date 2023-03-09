@@ -29,5 +29,17 @@
     "@vitejs/plugin-react": "^3.1.0",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
-  }
+  },
+  "description": "favorite modal",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R4D4M4NTHYS24/GPtest.git"
+  },
+  "author": "R4D4M4NTHYS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/R4D4M4NTHYS24/GPtest/issues"
+  },
+  "homepage": "https://github.com/R4D4M4NTHYS24/GPtest#readme"
 }
